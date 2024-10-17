@@ -15,5 +15,19 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.opt_local.conceallevel = 1
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_compiler_latexmk = {
+  executable = "latexmk",
+  options = {
+    "-xelatex", -- Specifies the use of XeLaTeX
+    "-file-line-error",
+    "-synctex=1",
+    "-interaction=nonstopmode",
+  },
+}
+vim.g.vimtex_quickfix_mode = 0
+vim.g.tex_flavor = "latex"
+vim.g.tex_conceal = "abdmg"
 require "lazy_setup"
 require "polish"
